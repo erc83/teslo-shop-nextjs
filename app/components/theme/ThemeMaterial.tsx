@@ -11,7 +11,7 @@ interface Props {
 
 const ThemeMaterial = ({ children }: Props) => {
   return (
-    <ThemeProvider theme={ darkTheme }>
+    <ThemeProvider theme={ lightTheme }>
         <CssBaseline />
         { children }
     </ThemeProvider>
