@@ -1,8 +1,10 @@
 'use client'
-import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material"
+import {  Typography } from "@mui/material"
 
 import { ShopLayout } from "@/app/components/layouts"
 import { initialData } from "@/database/products"  // temporal
+import { ProductList } from "./components/products"
+// import { IProduct } from "@/interfaces"
 
 export default function Home() {
 
@@ -11,25 +13,12 @@ export default function Home() {
       <Typography variant="h1" component='h1'>Tienda</Typography>
       <Typography variant="h2" sx={{ mb:1 }}>Todos los productos</Typography>
 
-      {/* spacing= separacion entre cada Grid item   */}
-      <Grid container spacing={4}>
-        {
-          initialData.products.map(product => (   // siempre que hacemos un map tiene que ir un key
-            <Grid item xs={6} sm={4} key={ product.slug }>
-              <Card>
-                <CardActionArea>
-                  <CardMedia 
-                    component='img'
-                    /* aqui tenemos el nombre de la imagen que esta con la extension en la carpeta publica*/
-                    image={`products/${ product.images[0] }`}
-                    alt={ product.title }
-                  />
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))
-        }
-      </Grid>
+      {/* spacing= separacion entre cada Grid item se modifica por el ProductList   */}
+      {/* me solicita un array vacio, as any temporal para sacar despues */}
+      <ProductList products={ initialData.products as any} />
+
+
+
     </ShopLayout>
   )
 }

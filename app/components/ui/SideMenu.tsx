@@ -4,7 +4,7 @@ import { Box, Divider, Drawer, IconButton, Input, InputAdornment, List, ListItem
 export const SideMenu = () => {
   return (
     <Drawer   /* es parte del fondo de la pagina */
-        open={ true }
+        open={ false }
         anchor='right'
         /* Para colocar elfondo borroso */
         sx={{ backdropFilter: 'blur(4px)', transition: 'all 0.5s ease-out' }}
