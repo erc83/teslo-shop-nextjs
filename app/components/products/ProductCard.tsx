@@ -1,8 +1,10 @@
+import { FC, useMemo, useState } from 'react'
+import NextLink from "next/link";
+
+import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from '@mui/material'
 
 
 import { IProduct } from '@/interfaces'
-import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from '@mui/material'
-import { FC, useMemo, useState } from 'react'
 
 interface Props {       // va a ser un producto de type IProduct
     product: IProduct;   // solo es uno no es un arreglo
@@ -27,18 +29,21 @@ export const ProductCard: FC<Props> = ( {product} ) => {   //{product}   obligo 
         onMouseLeave={ () => setIsHovered( false )}
     >
         <Card>
-            <CardActionArea>
-                <CardMedia
-                    component='img'
-                    className='fadeIn'
-                    
-                    image={ productImage }
-                    alt={ product.title }
-                    
-                    onLoad={ () => console.log('cargo')}
-                />
-
-            </CardActionArea>
+            {/* tenemos que mandar el url de la navegacion */}
+            {/* prefetch={false}  para que no cargue todas las paginas en memoria */}
+            <NextLink href="/product/slug" passHref legacyBehavior prefetch={ false }>
+                <Link>
+                    <CardActionArea>
+                        <CardMedia
+                            component='img'
+                            className='fadeIn'
+                            image={ productImage }
+                            alt={ product.title }  
+    /*                     onLoad={ () => console.log('cargo')} */
+                        />
+                    </CardActionArea>
+                </Link>
+            </NextLink>
         </Card>
 
         {/* fadeIn en los stylos css globales */}
