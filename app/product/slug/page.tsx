@@ -2,6 +2,7 @@
 
 import { ShopLayout } from "@/app/components/layouts"
 import { ProductSlideshow } from "@/app/components/products";
+import { ItemCounter } from "@/app/components/ui";
 import { initialData } from "@/database/products"
 import { Box, Button, Chip, Grid, Typography } from "@mui/material";
 
@@ -31,7 +32,7 @@ const ProductPage = () => {
               <Typography variant="subtitle2">Cantidad</Typography>
             
               {/* ItemCounter, crear un componente reutilizable para esto */}
-
+              <ItemCounter /> 
             </Box>
 
             {/* Agregar al Carrito */}
