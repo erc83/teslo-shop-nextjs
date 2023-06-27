@@ -11,7 +11,8 @@ const CartPage = () => {
         <Grid container>
           <Grid item xs={12} sm={7}>
             {/* CartList   basado en los productos contruirlo, puede ser que lo leamos del localstorage o de una cookie */}
-            <CartList />
+            {/* Si no se envia editable no se puede editar */}
+            <CartList editable />
           </Grid>
           <Grid item xs={12} sm={5}>
             <Card className='summary-card'>

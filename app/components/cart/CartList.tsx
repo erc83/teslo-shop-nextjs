@@ -3,6 +3,7 @@ import { Box, Button, CardActionArea, CardMedia, Grid, Link, Typography } from "
 import { initialData } from "@/database/products"
 import NextLink from "next/link"
 import { ItemCounter } from "../ui"
+import { FC } from "react"
 
 
 // creando el arreglo
@@ -12,8 +13,13 @@ const productInCart = [
     initialData.products[3],
 ]
 
+
+interface Props {
+    editable?: boolean;
+}
+
 // en el producto necesitamos imagen el valor el total y otras informaciones
-export const CartList = () => {
+export const CartList: FC<Props> = ({ editable = false }) => {    // desestructuramos el valor booleano
 
   return (
     <>
@@ -40,21 +46,31 @@ export const CartList = () => {
                             <Typography variant='body1'>Talla: <strong>M</strong></Typography>
 
                             {/* Conditional, cuando el cliente no tenga que editar */}
+                            {
+                                editable 
+                                    ? <ItemCounter />
+                                    : <Typography variant="h5"  >3 Items</Typography>
+                            }
                         
-                            <ItemCounter />
 
                         </Box>
                     </Grid>
                     <Grid item xs={2} display={"flex"} alignItems={"center"} flexDirection={'column'} >
                         <Typography variant="subtitle1">{ `$${ product.price }`}</Typography>
                     
-                        {/* Condicion si es editable */}
-                        <Button
-                            variant="text"
-                            color="secondary"
-                        >
-                            Remover
-                        </Button>
+                        {/* Condicion si es editable, no es ternario condicion de javascript */}
+                        {
+                            editable && (
+                                <Button
+                                    variant="text"
+                                    color="secondary"
+                                >
+                                    Remover
+                                </Button>
+                            )
+                        }
+
+
                     </Grid>
                 </Grid>
             ))
