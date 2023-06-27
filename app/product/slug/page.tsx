@@ -1,6 +1,7 @@
 'use client'
 
 import { ShopLayout } from "@/app/components/layouts"
+import { ProductSlideshow } from "@/app/components/products";
 import { initialData } from "@/database/products"
 import { Box, Button, Chip, Grid, Typography } from "@mui/material";
 
@@ -13,7 +14,10 @@ const ProductPage = () => {
       <Grid container spacing={3}>
 
         <Grid item xs={12} sm={ 7 }>
-          {/* Slideshow */}
+          {/* Slideshow, se queja porque necesita las imagenes */}
+          <ProductSlideshow 
+            images={ product.images }
+          />
         </Grid>
 
         <Grid item xs={12} sm={5}>

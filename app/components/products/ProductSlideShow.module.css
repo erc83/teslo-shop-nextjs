@@ -1,0 +1,10 @@
+
+
+/* con el guion tiene algo interesante para usarlo */
+.each-slide > div {
+    display: flex;
+    justify-content: center;
+    background-size: contain;
+    background-position: center;
+    height: 650px;;
+}
