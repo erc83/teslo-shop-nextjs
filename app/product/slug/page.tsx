@@ -1,7 +1,7 @@
 'use client'
 
 import { ShopLayout } from "@/app/components/layouts"
-import { ProductSlideshow } from "@/app/components/products";
+import { ProductSlideshow, SizeSelector } from "@/app/components/products";
 import { ItemCounter } from "@/app/components/ui";
 import { initialData } from "@/database/products"
 import { Box, Button, Chip, Grid, Typography } from "@mui/material";
@@ -33,6 +33,13 @@ const ProductPage = () => {
             
               {/* ItemCounter, crear un componente reutilizable para esto */}
               <ItemCounter /> 
+              {/* component tallas */}
+              <SizeSelector 
+                /* hay que hacer que el cliente seleccione una talla y no dejar por defecto*/
+                /*  selectedSize={ product.sizes[0] }  */
+                sizes={ product.sizes }              
+              />
+
             </Box>
 
             {/* Agregar al Carrito */}
