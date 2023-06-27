@@ -1,7 +1,7 @@
 'use client'
 import { Box, Button, Card, Divider, Grid, Typography } from "@mui/material"
 import { ShopLayout } from "../components/layouts"
-import { CartList } from "../components/cart"
+import { CartList, OrderSummary } from "../components/cart"
 
 const CartPage = () => {
   return (
@@ -18,7 +18,7 @@ const CartPage = () => {
               <Typography variant='h2'>Orden</Typography>
               <Divider sx={{ my: 1 }}  />
                 {/* Orden Summary */}
-
+                <OrderSummary />
               <Box sx={{ mt:3 }}>
                 <Button color="secondary" className='circular-btn' fullWidth>
                   Checkout
