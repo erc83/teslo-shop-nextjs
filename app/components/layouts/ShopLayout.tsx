@@ -10,7 +10,7 @@ interface Props {
     title: string;
     pageDescription: string;
     imageFullUrl?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 
 }
 
