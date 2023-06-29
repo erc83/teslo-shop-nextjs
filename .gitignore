@@ -37,3 +37,6 @@ next-env.d.ts
 
 12_comandos
 teslo-shop-assets.zip
+
+.env
+/mongo
