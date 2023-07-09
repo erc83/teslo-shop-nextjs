@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/database'
 import { Product } from '@/models'
 
-// type Data = { message: string }
+// type Data = { message:  string }
 
 export async function GET( request: NextRequest ) {
         const slug  = request.nextUrl.pathname.slice(14)
@@ -15,13 +15,21 @@ export async function GET( request: NextRequest ) {
         }
         try {            
             await db.connect();
-            const products = await Product.find(condition) 
-                                            .select('title images price inStock slug -_id')
+            const product = await Product.findOne(condition) 
+                                            //.select('title images price inStock slug -_id')
                                             .lean();
             await db.disconnect();
-            return NextResponse.json(products)   
+
+            if(!product ) {
+                return NextResponse.json({
+                  message: 'Producto no encontrado'
+                })
+            }
+            
+            return NextResponse.json(product)   
         } catch (error) {
             await db.disconnect()
+                NextResponse.json({ message: 'Bad request' })
             console.log(error)
         }
 }
