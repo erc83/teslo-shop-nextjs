@@ -34,9 +34,12 @@ const productSchema = new Schema({
     // para manejar la fecha de creacion y la fecha de actualizacion
 }, {
     timestamps: true      // lo crea automatico 
-})
+});
 
-const Product: Model<IProduct> = mongoose.models.Product  || model('Product', productSchema) 
+// creamos el indice                // los campos se tienen que llamar igual que arriba
+productSchema.index({ title:'text', tags: 'text' });
+
+const Product: Model<IProduct> = mongoose.models.Product  || model('Product', productSchema);
 
 export default Product;
 
